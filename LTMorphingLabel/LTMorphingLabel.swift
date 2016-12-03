@@ -59,15 +59,15 @@ typealias LTMorphingSkipFramesClosure =
 
 
 // MARK: - LTMorphingLabel
-@IBDesignable public class LTMorphingLabel: UILabel {
+@IBDesignable open class LTMorphingLabel: UILabel {
     
-    @IBInspectable public var morphingProgress: Float = 0.0
-    @IBInspectable public var morphingDuration: Float = 0.6
-    @IBInspectable public var morphingCharacterDelay: Float = 0.026
-    @IBInspectable public var morphingEnabled: Bool = true
+    @IBInspectable open var morphingProgress: Float = 0.0
+    @IBInspectable open var morphingDuration: Float = 0.6
+    @IBInspectable open var morphingCharacterDelay: Float = 0.026
+    @IBInspectable open var morphingEnabled: Bool = true
 
-    @IBOutlet public weak var delegate: LTMorphingLabelDelegate?
-    public var morphingEffect: LTMorphingEffect = .Scale
+    @IBOutlet open weak var delegate: LTMorphingLabelDelegate?
+    open var morphingEffect: LTMorphingEffect = .Scale
     
     var startClosures = [String: LTMorphingStartClosure]()
     var effectClosures = [String: LTMorphingEffectClosure]()
@@ -93,7 +93,7 @@ typealias LTMorphingSkipFramesClosure =
     let presentingInIB = false
     #endif
     
-    override public var font: UIFont! {
+    override open var font: UIFont! {
         get {
             return super.font
         }
@@ -103,7 +103,7 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    override public var text: String! {
+    override open var text: String! {
         get {
             return super.text
         }
@@ -139,13 +139,13 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    public override func setNeedsLayout() {
+    open override func setNeedsLayout() {
         super.setNeedsLayout()
         previousRects = rectsOfEachCharacter(textToDraw: previousText, withFont: font)
         newRects = rectsOfEachCharacter(textToDraw: text ?? "", withFont: font)
     }
     
-    override public var bounds: CGRect {
+    override open var bounds: CGRect {
         get {
             return super.bounds
         }
@@ -155,7 +155,7 @@ typealias LTMorphingSkipFramesClosure =
         }
     }
     
-    override public var frame: CGRect {
+    override open var frame: CGRect {
         get {
             return super.frame
         }
@@ -430,7 +430,7 @@ extension LTMorphingLabel {
 // MARK: - Drawing extension
 extension LTMorphingLabel {
     
-    override public func didMoveToSuperview() {
+    override open func didMoveToSuperview() {
         if let s = text {
             text = s
         }
@@ -444,7 +444,7 @@ extension LTMorphingLabel {
         }
     }
     
-    override public func drawText(in rect: CGRect) {
+    override open func drawText(in rect: CGRect) {
         if !morphingEnabled || limboOfCharacters().count == 0 {
             super.drawText(in: rect)
             return
