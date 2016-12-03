@@ -43,14 +43,14 @@ class LTDemoViewController : UIViewController, LTMorphingLabelDelegate {
         let seg = sender
         if let effect = LTMorphingEffect(rawValue: seg.selectedSegmentIndex) {
             label.morphingEffect = effect
-            changeText(sender)
+            changeText(sender: sender)
         }
     }
 
     @IBAction func toggleLight(sender: UISegmentedControl) {
         let isNight = Bool(sender.selectedSegmentIndex == 0)
-        view.backgroundColor = isNight ? UIColor.blackColor() : UIColor.whiteColor()
-        label.textColor = isNight ? UIColor.whiteColor() : UIColor.blackColor()
+        view.backgroundColor = isNight ? UIColor.black : UIColor.white
+        label.textColor = isNight ? UIColor.white : UIColor.black
     }
     
     @IBAction func changeFontSize(sender: UISlider) {

@@ -13,14 +13,11 @@ class AppDelegate : UIResponder, UIApplicationDelegate {
                             
     var window: UIWindow?
 
-    
-    func application(
-        application: UIApplication,
-        didFinishLaunchingWithOptions launchOptions: [NSObject : AnyObject]?
-        ) -> Bool {
-            window!.backgroundColor = UIColor.blackColor()
-            window!.makeKeyAndVisible()
-            return true
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
+        window!.backgroundColor = UIColor.black
+        window!.makeKeyAndVisible()
+        return true
     }
+    
 
 }
